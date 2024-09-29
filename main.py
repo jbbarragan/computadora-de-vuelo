@@ -9,3 +9,4 @@ if __name__ == "__main__":
     app = DataDisplayGUI(root, serial_conn)
     root.mainloop()
 
+

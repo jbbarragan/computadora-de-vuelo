@@ -1,5 +1,5 @@
 #by joshua barragán Guardado 
-from GUI import DataDisplayGUI
+import GUI
 import matplotlib.pyplot as plt
 import numpy as np
 from math import atan2, degrees, sqrt
@@ -209,7 +209,7 @@ def graficar_datos(temperatura, presion, humedad,
 
 # Archivo
 archivo = 'Telemetria_muestra.txt'
-#archivo = str(DataDisplayGUI.get_file_name)
+#archivo = str(GUI.DataDisplayGUI.get_file_name)
 # Leer archivo
 (temperatura, presion, humedad, aceleracion_x, aceleracion_y,
  aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z) = leer_datos(archivo)

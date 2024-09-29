@@ -12,7 +12,7 @@ class DataDisplayGUI:
         self.serial_conn = serial_conn
         self.is_recording = False
         self.recording_file = None
-        self.file_name = None
+       
 
         # Frame principal
         self.frame = tk.Frame(self.root)
@@ -44,11 +44,11 @@ class DataDisplayGUI:
         self.recording_frame.grid(row=0, column=1, sticky="ne")
 
         # Entrada para el nombre del archivo
-        self.file_label = tk.Label(self.recording_frame, text="Nombre del archivo:")
+        self.file_label = tk.Label(self.recording_frame, text="Guardado en Telemetria_muestra.txt")
         self.file_label.pack(padx=5, pady=5)
-        self.file_entry = tk.Entry(self.recording_frame)
-        self.file_entry.insert(0, "prueba.txt")  # Valor predeterminado
-        self.file_entry.pack(padx=5, pady=5)
+        #self.file_entry = tk.Entry(self.recording_frame)
+        #self.file_entry.insert(0, "prueba.txt")  # Valor predeterminado
+        #self.file_entry.pack(padx=5, pady=5)
 
         # Botones de grabación
         self.start_button = tk.Button(self.recording_frame, text="Start Recording", command=self.start_recording, state=tk.DISABLED)
@@ -94,16 +94,18 @@ class DataDisplayGUI:
 
     def start_recording(self):
         """Comenzar a grabar datos en un archivo de texto."""
-        self.file_name = self.file_entry.get()
+        #file_name = self.file_entry.get()
+        file_name = "Telemetria_muestra.txt"
         
         # Verificar si el archivo existe, si es así, eliminarlo y crear uno nuevo
-        if os.path.exists(self.file_name):
-            os.remove(self.file_name)
+        if os.path.exists(file_name):
+            os.remove(file_name)
 
-        self.recording_file = open(self.file_name, "w")
+        self.recording_file = open(file_name, "w")
         self.is_recording = True
         self.start_button.config(state=tk.DISABLED)
         self.stop_button.config(state=tk.NORMAL)
+        return file_name
 
     def stop_recording(self):
         """Detener la grabación de datos."""
@@ -268,9 +270,10 @@ class DataDisplayGUI:
         except Exception as e:
             messagebox.showerror("Error", f"Error al ejecutar filtra_todo.py: {e}")
     
-    def get_file_name(self):
+    def get_file_name(start_recording):
         """Método para obtener el nombre del archivo."""
-        return self.file_name
+        arch= start_recording
+        return arch
 
 
 
