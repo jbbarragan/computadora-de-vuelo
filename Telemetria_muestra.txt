@@ -1,0 +1,988 @@
+Temperatura: 25.11
+Presion: 763.27
+Humedad: 80.22
+
+
+Aceleracion en X: -0.47
+Aceleracion en Y: -0.08
+Aceleracion en Z: 0.85
+
+
+Velociad angular en X: 3.08
+Velociad angular en Y: 22.34
+Velociad angular en Z: -20.08
+
+
+Temperatura: 25.1
+Presion: 763.31
+Humedad: 80.07
+
+
+Aceleracion en X: -0.54
+Aceleracion en Y: -0.17
+Aceleracion en Z: 0.81
+
+
+Velociad angular en X: 5.04
+Velociad angular en Y: -6.15
+Velociad angular en Z: 2.4
+
+
+Temperatura: 25.08
+Presion: 763.28
+Humedad: 79.62
+
+
+Aceleracion en X: -0.6
+Aceleracion en Y: -0.23
+Aceleracion en Z: 0.73
+
+
+Velociad angular en X: 18.88
+Velociad angular en Y: 38.02
+Velociad angular en Z: -1.27
+
+
+Temperatura: 25.06
+Presion: 763.31
+Humedad: 79.3
+
+
+Aceleracion en X: -0.63
+Aceleracion en Y: -0.21
+Aceleracion en Z: 0.69
+
+
+Velociad angular en X: 8.22
+Velociad angular en Y: -22.15
+Velociad angular en Z: -1.21
+
+
+Temperatura: 25.04
+Presion: 763.24
+Humedad: 79.15
+
+
+Aceleracion en X: -0.57
+Aceleracion en Y: -0.26
+Aceleracion en Z: 0.68
+
+
+Velociad angular en X: 3.73
+Velociad angular en Y: 13.5
+Velociad angular en Z: -0.77
+
+
+Temperatura: 25.04
+Presion: 763.28
+Humedad: 79.21
+
+
+Aceleracion en X: -0.76
+Aceleracion en Y: -0.18
+Aceleracion en Z: 0.68
+
+
+Velociad angular en X: 20.79
+Velociad angular en Y: 45.24
+Velociad angular en Z: -9.13
+
+
+Temperatura: 25.03
+Presion: 763.25
+Humedad: 79.46
+
+
+Aceleracion en X: -0.82
+Aceleracion en Y: -0.12
+Aceleracion en Z: 0.53
+
+
+Velociad angular en X: 16.62
+Velociad angular en Y: -9.95
+Velociad angular en Z: -3.95
+
+
+Temperatura: 25.02
+Presion: 763.32
+Humedad: 79.64
+
+
+Aceleracion en X: -0.84
+Aceleracion en Y: -0.07
+Aceleracion en Z: 0.53
+
+
+Velociad angular en X: -0.88
+Velociad angular en Y: -15.99
+Velociad angular en Z: 18.06
+
+
+Temperatura: 25.02
+Presion: 763.31
+Humedad: 79.61
+
+
+Aceleracion en X: -0.76
+Aceleracion en Y: -0.11
+Aceleracion en Z: 0.67
+
+
+Velociad angular en X: 20.55
+Velociad angular en Y: -1.03
+Velociad angular en Z: 2.37
+
+
+Temperatura: 25.0
+Presion: 763.32
+Humedad: 79.66
+
+
+Aceleracion en X: -0.75
+Aceleracion en Y: -0.12
+Aceleracion en Z: 0.57
+
+
+Velociad angular en X: 21.81
+Velociad angular en Y: -0.44
+Velociad angular en Z: -9.98
+
+
+Temperatura: 24.99
+Presion: 763.28
+Humedad: 79.74
+
+
+Aceleracion en X: -0.73
+Aceleracion en Y: -0.15
+Aceleracion en Z: 0.59
+
+
+Velociad angular en X: 16.98
+Velociad angular en Y: -2.85
+Velociad angular en Z: -4.63
+
+
+Temperatura: 24.98
+Presion: 763.24
+Humedad: 79.79
+
+
+Aceleracion en X: -0.66
+Aceleracion en Y: -0.12
+Aceleracion en Z: 0.68
+
+
+Velociad angular en X: 25.02
+Velociad angular en Y: -7.2
+Velociad angular en Z: 6.65
+
+
+Temperatura: 24.97
+Presion: 763.23
+Humedad: 79.8
+
+
+Aceleracion en X: -0.65
+Aceleracion en Y: -0.13
+Aceleracion en Z: 0.85
+
+
+Velociad angular en X: -2.33
+Velociad angular en Y: -5.46
+Velociad angular en Z: -20.69
+
+
+Temperatura: 24.95
+Presion: 763.26
+Humedad: 79.79
+
+
+Aceleracion en X: -0.65
+Aceleracion en Y: -0.33
+Aceleracion en Z: 0.91
+
+
+Velociad angular en X: -22.55
+Velociad angular en Y: -8.33
+Velociad angular en Z: 29.43
+
+
+Temperatura: 24.86
+Presion: 763.28
+Humedad: 79.8
+
+
+Aceleracion en X: -0.14
+Aceleracion en Y: -0.22
+Aceleracion en Z: 1.13
+
+
+Velociad angular en X: -12.44
+Velociad angular en Y: -31.42
+Velociad angular en Z: 13.73
+
+
+Temperatura: 24.72
+Presion: 763.27
+Humedad: 79.86
+
+
+Aceleracion en X: -0.03
+Aceleracion en Y: -0.06
+Aceleracion en Z: 1.1
+
+
+Velociad angular en X: 56.08
+Velociad angular en Y: -248.18
+Velociad angular en Z: 95.68
+
+
+Temperatura: 24.62
+Presion: 763.24
+Humedad: 80.1
+
+
+Aceleracion en X: 0.64
+Aceleracion en Y: -0.35
+Aceleracion en Z: 0.74
+
+
+Velociad angular en X: -15.61
+Velociad angular en Y: -104.5
+Velociad angular en Z: 113.47
+
+
+Temperatura: 24.62
+Presion: 763.26
+Humedad: 80.34
+
+
+Aceleracion en X: 0.87
+Aceleracion en Y: -0.61
+Aceleracion en Z: 0.28
+
+
+Velociad angular en X: 33.08
+Velociad angular en Y: -0.61
+Velociad angular en Z: -14.96
+
+
+Temperatura: 24.63
+Presion: 763.25
+Humedad: 80.58
+
+
+Aceleracion en X: 0.7
+Aceleracion en Y: -0.64
+Aceleracion en Z: 0.49
+
+
+Velociad angular en X: -11.4
+Velociad angular en Y: -241.95
+Velociad angular en Z: 46.53
+
+
+Temperatura: 24.66
+Presion: 763.25
+Humedad: 80.77
+
+
+Aceleracion en X: 0.73
+Aceleracion en Y: -0.6
+Aceleracion en Z: -0.14
+
+
+Velociad angular en X: -8.21
+Velociad angular en Y: 4.98
+Velociad angular en Z: 1.31
+
+
+Temperatura: 24.68
+Presion: 763.28
+Humedad: 80.92
+
+
+Aceleracion en X: 0.58
+Aceleracion en Y: -0.56
+Aceleracion en Z: -0.56
+
+
+Velociad angular en X: 21.91
+Velociad angular en Y: -19.02
+Velociad angular en Z: -7.61
+
+
+Temperatura: 24.69
+Presion: 763.24
+Humedad: 81.05
+
+
+Aceleracion en X: 0.77
+Aceleracion en Y: -0.52
+Aceleracion en Z: -0.32
+
+
+Velociad angular en X: -9.89
+Velociad angular en Y: 24.56
+Velociad angular en Z: 5.55
+
+
+Temperatura: 24.7
+Presion: 763.25
+Humedad: 81.16
+
+
+Aceleracion en X: 0.86
+Aceleracion en Y: -0.5
+Aceleracion en Z: -0.27
+
+
+Velociad angular en X: -18.2
+Velociad angular en Y: 88.27
+Velociad angular en Z: 27.49
+
+
+Temperatura: 24.7
+Presion: 763.31
+Humedad: 81.16
+
+
+Aceleracion en X: 0.73
+Aceleracion en Y: -0.57
+Aceleracion en Z: -0.0
+
+
+Velociad angular en X: 52.89
+Velociad angular en Y: 74.95
+Velociad angular en Z: -45.4
+
+
+Temperatura: 24.7
+Presion: 763.28
+Humedad: 81.2
+
+
+Aceleracion en X: 0.9
+Aceleracion en Y: -0.58
+Aceleracion en Z: 0.05
+
+
+Velociad angular en X: -103.63
+Velociad angular en Y: -13.13
+Velociad angular en Z: 22.68
+
+
+Temperatura: 24.7
+Presion: 763.2
+Humedad: 81.27
+
+
+Aceleracion en X: 0.75
+Aceleracion en Y: -0.69
+Aceleracion en Z: -0.18
+
+
+Velociad angular en X: 21.08
+Velociad angular en Y: -14.78
+Velociad angular en Z: -4.06
+
+
+Temperatura: 24.71
+Presion: 763.31
+Humedad: 81.32
+
+
+Aceleracion en X: 0.75
+Aceleracion en Y: -0.67
+Aceleracion en Z: -0.25
+
+
+Velociad angular en X: 32.95
+Velociad angular en Y: 6.0
+Velociad angular en Z: -8.22
+
+
+Temperatura: 24.71
+Presion: 763.26
+Humedad: 81.4
+
+
+Aceleracion en X: 0.81
+Aceleracion en Y: -0.68
+Aceleracion en Z: -0.24
+
+
+Velociad angular en X: 15.5
+Velociad angular en Y: -5.11
+Velociad angular en Z: -8.75
+
+
+Temperatura: 24.7
+Presion: 763.31
+Humedad: 81.43
+
+
+Aceleracion en X: 0.77
+Aceleracion en Y: -0.71
+Aceleracion en Z: -0.27
+
+
+Velociad angular en X: 31.25
+Velociad angular en Y: 9.05
+Velociad angular en Z: -7.72
+
+
+Temperatura: 24.7
+Presion: 763.25
+Humedad: 81.48
+
+
+Aceleracion en X: 0.78
+Aceleracion en Y: -0.66
+Aceleracion en Z: -0.26
+
+
+Velociad angular en X: 21.69
+Velociad angular en Y: 5.53
+Velociad angular en Z: -6.98
+
+
+Temperatura: 24.7
+Presion: 763.25
+Humedad: 81.52
+
+
+Aceleracion en X: 0.8
+Aceleracion en Y: -0.58
+Aceleracion en Z: -0.05
+
+
+Velociad angular en X: 26.28
+Velociad angular en Y: 47.75
+Velociad angular en Z: -1.66
+
+
+Temperatura: 24.7
+Presion: 763.31
+Humedad: 81.6
+
+
+Aceleracion en X: 0.7
+Aceleracion en Y: -0.8
+Aceleracion en Z: 0.08
+
+
+Velociad angular en X: 30.98
+Velociad angular en Y: 76.13
+Velociad angular en Z: -17.38
+
+
+Temperatura: 24.69
+Presion: 763.3
+Humedad: 81.63
+
+
+Aceleracion en X: 0.62
+Aceleracion en Y: -0.77
+Aceleracion en Z: 0.14
+
+
+Velociad angular en X: 98.05
+Velociad angular en Y: 93.13
+Velociad angular en Z: -11.62
+
+
+Temperatura: 24.7
+Presion: 763.25
+Humedad: 80.88
+
+
+Aceleracion en X: 0.48
+Aceleracion en Y: -0.44
+Aceleracion en Z: 0.71
+
+
+Velociad angular en X: 52.76
+Velociad angular en Y: 34.92
+Velociad angular en Z: -47.95
+
+
+Temperatura: 24.73
+Presion: 763.26
+Humedad: 80.71
+
+
+Aceleracion en X: 0.48
+Aceleracion en Y: -0.5
+Aceleracion en Z: 0.77
+
+
+Velociad angular en X: 52.09
+Velociad angular en Y: -48.11
+Velociad angular en Z: 20.13
+
+
+Temperatura: 24.77
+Presion: 763.23
+Humedad: 79.73
+
+
+Aceleracion en X: 0.81
+Aceleracion en Y: -0.22
+Aceleracion en Z: 0.62
+
+
+Velociad angular en X: -3.99
+Velociad angular en Y: -59.0
+Velociad angular en Z: 52.89
+
+
+Temperatura: 24.79
+Presion: 763.25
+Humedad: 78.75
+
+
+Aceleracion en X: 0.39
+Aceleracion en Y: -0.82
+Aceleracion en Z: 0.91
+
+
+Velociad angular en X: 3.3
+Velociad angular en Y: -99.08
+Velociad angular en Z: 76.87
+
+
+Temperatura: 24.79
+Presion: 763.22
+Humedad: 77.68
+
+
+Aceleracion en X: 0.75
+Aceleracion en Y: -0.73
+Aceleracion en Z: -0.35
+
+
+Velociad angular en X: 7.18
+Velociad angular en Y: -190.33
+Velociad angular en Z: 29.87
+
+
+Temperatura: 24.8
+Presion: 763.24
+Humedad: 76.84
+
+
+Aceleracion en X: 0.35
+Aceleracion en Y: -0.86
+Aceleracion en Z: -0.43
+
+
+Velociad angular en X: 56.9
+Velociad angular en Y: -13.37
+Velociad angular en Z: -40.27
+
+
+Temperatura: 24.82
+Presion: 763.29
+Humedad: 76.02
+
+
+Aceleracion en X: -0.08
+Aceleracion en Y: -0.92
+Aceleracion en Z: -0.75
+
+
+Velociad angular en X: 65.51
+Velociad angular en Y: -157.85
+Velociad angular en Z: 134.53
+
+
+Temperatura: 24.84
+Presion: 763.26
+Humedad: 75.29
+
+
+Aceleracion en X: -0.74
+Aceleracion en Y: -0.64
+Aceleracion en Z: -0.13
+
+
+Velociad angular en X: 29.27
+Velociad angular en Y: -126.28
+Velociad angular en Z: 97.97
+
+
+Temperatura: 24.84
+Presion: 763.23
+Humedad: 74.42
+
+
+Aceleracion en X: -0.9
+Aceleracion en Y: -0.31
+Aceleracion en Z: 0.19
+
+
+Velociad angular en X: 3.77
+Velociad angular en Y: -30.97
+Velociad angular en Z: 39.79
+
+
+Temperatura: 24.85
+Presion: 763.24
+Humedad: 73.7
+
+
+Aceleracion en X: -0.82
+Aceleracion en Y: -0.25
+Aceleracion en Z: 0.16
+
+
+Velociad angular en X: 19.4
+Velociad angular en Y: 4.95
+Velociad angular en Z: 32.66
+
+
+Temperatura: 24.85
+Presion: 763.22
+Humedad: 72.96
+
+
+Aceleracion en X: -0.9700001
+Aceleracion en Y: -0.25
+Aceleracion en Z: 0.18
+
+
+Velociad angular en X: 16.64
+Velociad angular en Y: -27.39
+Velociad angular en Z: 22.24
+
+
+Temperatura: 24.87
+Presion: 763.24
+Humedad: 72.26
+
+
+Aceleracion en X: -1.03
+Aceleracion en Y: -0.18
+Aceleracion en Z: 0.25
+
+
+Velociad angular en X: 22.5
+Velociad angular en Y: -6.22
+Velociad angular en Z: 4.68
+
+
+Temperatura: 24.89
+Presion: 763.21
+Humedad: 71.66
+
+
+Aceleracion en X: -0.91
+Aceleracion en Y: -0.2
+Aceleracion en Z: -0.01
+
+
+Velociad angular en X: 12.56
+Velociad angular en Y: 13.41
+Velociad angular en Z: 5.63
+
+
+Temperatura: 24.9
+Presion: 763.25
+Humedad: 71.05
+
+
+Aceleracion en X: -1.43
+Aceleracion en Y: -0.37
+Aceleracion en Z: -0.25
+
+
+Velociad angular en X: 45.08
+Velociad angular en Y: -12.08
+Velociad angular en Z: -75.42
+
+
+Temperatura: 24.92
+Presion: 763.25
+Humedad: 70.64
+
+
+Aceleracion en X: -1.03
+Aceleracion en Y: -0.29
+Aceleracion en Z: -0.02
+
+
+Velociad angular en X: 73.92
+Velociad angular en Y: 14.1
+Velociad angular en Z: 163.56
+
+
+Temperatura: 24.94
+Presion: 763.22
+Humedad: 70.34
+
+
+Aceleracion en X: -0.14
+Aceleracion en Y: -0.3
+Aceleracion en Z: 0.01
+
+
+Velociad angular en X: -82.37
+Velociad angular en Y: 57.3
+Velociad angular en Z: -45.82
+
+
+Temperatura: 24.96
+Presion: 763.27
+Humedad: 69.99
+
+
+Aceleracion en X: -0.93
+Aceleracion en Y: -0.33
+Aceleracion en Z: 0.07
+
+
+Velociad angular en X: 14.5
+Velociad angular en Y: -15.62
+Velociad angular en Z: 1.73
+
+
+Temperatura: 24.97
+Presion: 763.26
+Humedad: 69.58
+
+
+Aceleracion en X: -0.91
+Aceleracion en Y: -0.3
+Aceleracion en Z: -0.1
+
+
+Velociad angular en X: 18.95
+Velociad angular en Y: 6.8
+Velociad angular en Z: 9.34
+
+
+Temperatura: 24.98
+Presion: 763.32
+Humedad: 69.18
+
+
+Aceleracion en X: -0.93
+Aceleracion en Y: -0.26
+Aceleracion en Z: -0.07
+
+
+Velociad angular en X: 12.89
+Velociad angular en Y: -11.05
+Velociad angular en Z: 4.12
+
+
+Temperatura: 25.0
+Presion: 763.29
+Humedad: 68.77
+
+
+Aceleracion en X: -0.93
+Aceleracion en Y: -0.3
+Aceleracion en Z: -0.12
+
+
+Velociad angular en X: 26.37
+Velociad angular en Y: -19.61
+Velociad angular en Z: -0.79
+
+
+Temperatura: 25.0
+Presion: 763.29
+Humedad: 68.42
+
+
+Aceleracion en X: -0.9
+Aceleracion en Y: -0.3
+Aceleracion en Z: 0.02
+
+
+Velociad angular en X: 26.38
+Velociad angular en Y: -25.48
+Velociad angular en Z: 6.66
+
+
+Temperatura: 25.01
+Presion: 763.23
+Humedad: 68.09
+
+
+Aceleracion en X: -0.91
+Aceleracion en Y: -0.27
+Aceleracion en Z: 0.14
+
+
+Velociad angular en X: 3.42
+Velociad angular en Y: -56.44
+Velociad angular en Z: 2.6
+
+
+Temperatura: 25.02
+Presion: 763.24
+Humedad: 67.76
+
+
+Aceleracion en X: -0.9599999
+Aceleracion en Y: -0.25
+Aceleracion en Z: 0.3
+
+
+Velociad angular en X: 13.37
+Velociad angular en Y: -36.93
+Velociad angular en Z: -0.85
+
+
+Temperatura: 25.04
+Presion: 763.26
+Humedad: 67.46
+
+
+Aceleracion en X: -0.91
+Aceleracion en Y: -0.26
+Aceleracion en Z: 0.31
+
+
+Velociad angular en X: 25.34
+Velociad angular en Y: 15.81
+Velociad angular en Z: -13.89
+
+
+Temperatura: 25.04
+Presion: 763.24
+Humedad: 67.17
+
+
+Aceleracion en X: -0.84
+Aceleracion en Y: -0.23
+Aceleracion en Z: 0.32
+
+
+Velociad angular en X: 28.34
+Velociad angular en Y: -7.97
+Velociad angular en Z: 0.9599999
+
+
+Temperatura: 25.06
+Presion: 763.2
+Humedad: 66.95
+
+
+Aceleracion en X: -0.88
+Aceleracion en Y: -0.22
+Aceleracion en Z: 0.36
+
+
+Velociad angular en X: 7.47
+Velociad angular en Y: -0.02
+Velociad angular en Z: -9.57
+
+
+Temperatura: 25.06
+Presion: 763.26
+Humedad: 66.69
+
+
+Aceleracion en X: -0.83
+Aceleracion en Y: -0.24
+Aceleracion en Z: 0.36
+
+
+Velociad angular en X: 24.79
+Velociad angular en Y: 15.24
+Velociad angular en Z: -3.7
+
+
+Temperatura: 25.07
+Presion: 763.27
+Humedad: 66.47
+
+
+Aceleracion en X: -0.89
+Aceleracion en Y: -0.26
+Aceleracion en Z: 0.28
+
+
+Velociad angular en X: 8.33
+Velociad angular en Y: -26.62
+Velociad angular en Z: -15.35
+
+
+Temperatura: 25.09
+Presion: 763.27
+Humedad: 66.22
+
+
+Aceleracion en X: -0.85
+Aceleracion en Y: -0.29
+Aceleracion en Z: 0.09
+
+
+Velociad angular en X: 18.11
+Velociad angular en Y: 21.86
+Velociad angular en Z: -2.1
+
+
+Temperatura: 25.11
+Presion: 763.21
+Humedad: 65.97
+
+
+Aceleracion en X: -0.87
+Aceleracion en Y: -0.31
+Aceleracion en Z: 0.07
+
+
+Velociad angular en X: 14.04
+Velociad angular en Y: 22.26
+Velociad angular en Z: -1.84
+
+
+Temperatura: 25.14
+Presion: 763.24
+Humedad: 65.79
+
+
+Aceleracion en X: -0.92
+Aceleracion en Y: -0.3
+Aceleracion en Z: 0.04
+
+
+Velociad angular en X: 11.61
+Velociad angular en Y: -1.08
+Velociad angular en Z: -3.98
+
+
+Temperatura: 25.16
+Presion: 763.21
+Humedad: 65.61
+
+
+Aceleracion en X: -0.88
+Aceleracion en Y: -0.31
+Aceleracion en Z: 0.06
+
+
+Velociad angular en X: 18.14
+Velociad angular en Y: 10.97
+Velociad angular en Z: 1.02
+
+
+Temperatura: 25.18
+Presion: 763.23
+Humedad: 65.51
+
+
+Aceleracion en X: -0.9
+Aceleracion en Y: -0.31
+Aceleracion en Z: 0.05
+
+
+Velociad angular en X: 22.72
+Velociad angular en Y: 0.04
+Velociad angular en Z: 1.05
