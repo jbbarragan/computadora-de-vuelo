@@ -1,4 +1,6 @@
-#by astra
+# AUTHOR: ASTRA CLUB
+# DATE: 2024
+# FILE: COMPUTADORA DE VUELO/main.py
 import tkinter as tk
 from SerialConnection import SerialConnection
 from GUI import DataDisplayGUI

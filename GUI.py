@@ -1,4 +1,7 @@
-#by astra & joshua barragán
+# AUTHOR: ASTRA CLUB
+# DATE: 2024
+# FILE: COMPUTADORA DE VUELO/GUI.py
+# Params: main.py, SerialConnection
 import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
@@ -14,57 +17,47 @@ class DataDisplayGUI:
         self.recording_file = None
        
 
-        # Frame principal
         self.frame = tk.Frame(self.root)
         self.frame.pack(padx=20, pady=20)
 
-        # Frame para el estado de conexión y selección de puerto (Parte superior izquierda)
         self.connection_frame = tk.Frame(self.frame)
         self.connection_frame.grid(row=0, column=0, sticky="nw")
 
-        # Estado de conexión
         self.connection_status = tk.Label(self.connection_frame, text="Estado: Desconectado", width=30, fg="red")
         self.connection_status.pack(pady=10)
 
-        # Lista de puertos COM disponibles
         self.combobox = ttk.Combobox(self.connection_frame, values=self.serial_conn.list_ports())
         self.combobox.pack(padx=5, pady=5)
         self.combobox.set("Selecciona un puerto COM")
         self.combobox.bind("<<ComboboxSelected>>", self.enable_connect_button)
 
-        # Botones de conectar y desconectar
+      
         self.connect_button = tk.Button(self.connection_frame, text="Conectar", command=self.connect_serial, state=tk.DISABLED)
         self.connect_button.pack(side=tk.LEFT, padx=5, pady=5)
 
         self.disconnect_button = tk.Button(self.connection_frame, text="Desconectar", command=self.disconnect_serial, state=tk.DISABLED)
         self.disconnect_button.pack(side=tk.LEFT, padx=5, pady=5)
 
-        # Frame para la entrada del nombre de archivo y los botones de grabación (Parte superior derecha)
         self.recording_frame = tk.Frame(self.frame)
         self.recording_frame.grid(row=0, column=1, sticky="ne")
 
-        # Entrada para el nombre del archivo
+
         self.file_label = tk.Label(self.recording_frame, text="Guardado en Telemetria_muestra.txt")
         self.file_label.pack(padx=5, pady=5)
-        #self.file_entry = tk.Entry(self.recording_frame)
-        #self.file_entry.insert(0, "prueba.txt")  # Valor predeterminado
-        #self.file_entry.pack(padx=5, pady=5)
-
-        # Botones de grabación
+      
         self.start_button = tk.Button(self.recording_frame, text="Start Recording", command=self.start_recording, state=tk.DISABLED)
         self.start_button.pack(padx=5, pady=5)
 
         self.stop_button = tk.Button(self.recording_frame, text="Stop Recording", command=self.stop_recording, state=tk.DISABLED)
         self.stop_button.pack(padx=5, pady=5)
 
-        # Crear cuadros para cada tipo de dato
         self.create_data_labels()
 
-        # Crear etiquetas de máximos y mínimos
+
         self.create_min_max_labels()
 
-        # Botón para graficar (parte inferior central)
-        self.create_graficar_button()  # Llama a la función para crear el botón de graficar
+    
+        self.create_graficar_button()  
 
     def enable_connect_button(self, event):
         """Habilitar el botón de conectar cuando se seleccione un puerto."""
@@ -80,7 +73,6 @@ class DataDisplayGUI:
             self.disconnect_button.config(state=tk.NORMAL)
             self.start_button.config(state=tk.NORMAL)
 
-            # Iniciar la recepción de datos en un hilo separado
             threading.Thread(target=self.receive_data).start()
 
     def disconnect_serial(self):
@@ -94,10 +86,9 @@ class DataDisplayGUI:
 
     def start_recording(self):
         """Comenzar a grabar datos en un archivo de texto."""
-        #file_name = self.file_entry.get()
         file_name = "Telemetria_muestra.txt"
         
-        # Verificar si el archivo existe, si es así, eliminarlo y crear uno nuevo
+
         if os.path.exists(file_name):
             os.remove(file_name)
 
@@ -119,74 +110,74 @@ class DataDisplayGUI:
     def create_data_labels(self):
         """Crea las etiquetas para mostrar los datos en la GUI en cuadros separados."""
 
-        # Crear un marco principal para contener todos los cuadros
+
         self.data_frames = tk.Frame(self.root)
         self.data_frames.pack(padx=10, pady=10)
 
-        # Cuadro para Velocidad
+
         self.velocidad_frame = tk.LabelFrame(self.data_frames, text="Velocidad", padx=10, pady=10)
         self.velocidad_frame.grid(row=0, column=0, padx=5, pady=5)
         self.velocidad_labels = {}
         for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.velocidad_frame, text=f"Bno_aceleracion lineal {axis}: ---")
+            label = tk.Label(self.velocidad_frame, text=f"aceleracion lineal {axis}: ---")
             label.pack(anchor="w")
-            self.velocidad_labels[f"Bno_aceleracion lineal {axis}"] = label
+            self.velocidad_labels[f"aceleracion lineal {axis}"] = label
 
-        # Cuadro para Aceleraciones
+
         self.aceleracion_frame = tk.LabelFrame(self.data_frames, text="Aceleraciones", padx=10, pady=10)
         self.aceleracion_frame.grid(row=0, column=1, padx=5, pady=5)
         self.aceleracion_labels = {}
         for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.aceleracion_frame, text=f"Bno_acelerometro {axis}: ---")
+            label = tk.Label(self.aceleracion_frame, text=f"acelerometro {axis}: ---")
             label.pack(anchor="w")
-            self.aceleracion_labels[f"Bno_acelerometro {axis}"] = label
+            self.aceleracion_labels[f"acelerometro {axis}"] = label
 
-        # Cuadro para Gravedades
+
         self.gravedad_frame = tk.LabelFrame(self.data_frames, text="Gravedades", padx=10, pady=10)
         self.gravedad_frame.grid(row=0, column=2, padx=5, pady=5)
         self.gravedad_labels = {}
         for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.gravedad_frame, text=f"Bno_gravedad {axis}: ---")
+            label = tk.Label(self.gravedad_frame, text=f"gravedad {axis}: ---")
             label.pack(anchor="w")
-            self.gravedad_labels[f"Bno_gravedad {axis}"] = label
+            self.gravedad_labels[f"gravedad {axis}"] = label
 
-        # Cuadro para Giroscopio
+   
         self.giroscopio_frame = tk.LabelFrame(self.data_frames, text="Giroscopio", padx=10, pady=10)
         self.giroscopio_frame.grid(row=0, column=3, padx=5, pady=5)
         self.giroscopio_labels = {}
         for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.giroscopio_frame, text=f"Bno_giroscopio {axis}: ---")
+            label = tk.Label(self.giroscopio_frame, text=f"giroscopio {axis}: ---")
             label.pack(anchor="w")
-            self.giroscopio_labels[f"Bno_giroscopio {axis}"] = label
+            self.giroscopio_labels[f"giroscopio {axis}"] = label
 
-        # Cuadro para Magnetómetro
+      
         self.magnetometro_frame = tk.LabelFrame(self.data_frames, text="Magnetómetro", padx=10, pady=10)
         self.magnetometro_frame.grid(row=0, column=4, padx=5, pady=5)
         self.magnetometro_labels = {}
         for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.magnetometro_frame, text=f"Bno_magnetrometro {axis}: ---")
+            label = tk.Label(self.magnetometro_frame, text=f"magnetrometro {axis}: ---")
             label.pack(anchor="w")
-            self.magnetometro_labels[f"Bno_magnetrometro {axis}"] = label
+            self.magnetometro_labels[f"magnetrometro {axis}"] = label
 
-        # Cuadro para Condiciones Ambientales (Temperatura, Presión, Humedad)
+ 
         self.ambiental_frame = tk.LabelFrame(self.data_frames, text="Condiciones Ambientales", padx=10, pady=10)
         self.ambiental_frame.grid(row=1, column=0, padx=5, pady=5, columnspan=3, sticky="ew")
         self.ambiental_labels = {}
-        for field in ["Bmp_temperatura", "Bmp_presion", "Aht_temperatura", "Aht_humedad"]:
+        for field in ["temperatura", "presion", "temperatura", "humedad"]:
             label = tk.Label(self.ambiental_frame, text=f"{field}: ---")
             label.pack(anchor="w")
             self.ambiental_labels[field] = label
 
-        # Cuadro para Orientación
+   
         self.orientacion_frame = tk.LabelFrame(self.data_frames, text="Orientación", padx=10, pady=10)
         self.orientacion_frame.grid(row=1, column=3, padx=5, pady=5, columnspan=2, sticky="ew")
         self.orientacion_labels = {}
-        for field in ["Bno_yaw", "Bno_pitch", "Bno_heading", "Bno_roll"]:
+        for field in ["yaw", "pitch", "heading", "roll"]:
             label = tk.Label(self.orientacion_frame, text=f"{field}: ---")
             label.pack(anchor="w")
             self.orientacion_labels[field] = label
 
-        # Unificar todos los cuadros de etiquetas en un diccionario
+
         self.labels = {**self.velocidad_labels, **self.aceleracion_labels, **self.gravedad_labels,
                        **self.giroscopio_labels, **self.magnetometro_labels, **self.ambiental_labels,
                        **self.orientacion_labels}
@@ -196,7 +187,7 @@ class DataDisplayGUI:
         self.max_labels = {}
         self.min_labels = {}
 
-        # Cuadro para máximos y mínimos de temperatura y presión
+       
         self.temp_press_max_min_frame = tk.LabelFrame(self.root, text="Temperaturas y Presiones Máximas y Mínimas", padx=10, pady=10)
         self.temp_press_max_min_frame.pack(padx=10, pady=10, side=tk.TOP, fill=tk.X)
 
@@ -214,14 +205,14 @@ class DataDisplayGUI:
         """Actualizar las etiquetas de datos con la información recibida."""
         keys = list(self.labels.keys())
 
-        # Convertir los valores recibidos en float
+
         data_list = [float(value) for value in data_list]
 
         for i, value in enumerate(data_list):
             if i < len(keys):
                 self.labels[keys[i]].config(text=f"{keys[i]}: {value}")
 
-                # Actualizar máximos y mínimos
+       
                 if keys[i] in self.max_labels:
                     current_max = float(self.max_labels[keys[i]].cget("text").split(": ")[1])
                     if value > current_max or current_max == "---":
@@ -238,23 +229,22 @@ class DataDisplayGUI:
             data = self.serial_conn.read_data()
 
             if data:
-                print(f"Datos recibidos: {data}")  # Mostrar los datos recibidos para depuración
+                print(f"Datos recibidos: {data}")  
 
                 try:
                     data_list = data.split(',')
 
-                    if len(data_list) == 23:  # Solo procesar si hay 23 valores
+                    if len(data_list) == 23:  
                         data_list = [float(value) for value in data_list]
-                        print(f"Datos procesados: {data_list}")  # Mostrar los datos procesados para depuración
+                        print(f"Datos procesados: {data_list}")  
 
                         self.update_labels(data_list)
 
                         if self.is_recording:
                             self.recording_file.write(','.join(map(str, data_list)) + '\n')
-                    else:
-                        print(f"Error: Se esperaban 23 valores, pero se recibieron {len(data_list)}")
+                    
                 except ValueError as e:
-                    print(f"Error al procesar los datos: {e}, Datos recibidos: {data}")
+                    print(f"Datos recibidos: {data}")
 
             time.sleep(0.05)
 

@@ -1,92 +1,81 @@
-#by joshua barragán Guardado 
-import GUI
+# AUTHOR: ASTRA CLUB
+# DATE: 2024
+# FILE: COMPUTADORA DE VUELO/filtra_todo.py
+# Params: main.py
 import matplotlib.pyplot as plt
 import numpy as np
 from math import atan2, degrees, sqrt
+import os
 
-#from google.colab import files
-#uploaded = files.upload()
 
-# Filtro de media
+os.makedirs("graficas", exist_ok=True)
+
+
 def media_movil(data, ventana=3):
-    return np.convolve(data, np.ones(ventana)/ventana, mode='valid')
+    return np.convolve(data, np.ones(ventana) / ventana, mode='valid')
 
-# Filtro de Kalman
+
 class FiltroKalman:
     def __init__(self, q=1e-5, r=1e-2):
-        self.q = q  # Varianza del ruido del proceso
-        self.r = r  # Varianza del ruido de la medida
-        self.x = 0  # Valor estimado inicial
-        self.p = 1  # Error de estimación inicial
+        self.q = q
+        self.r = r
+        self.x = 0
+        self.p = 1
 
     def filtrar(self, z):
-        # Predicción
         self.p = self.p + self.q
-
-        # Actualización
-        k = self.p / (self.p + self.r)  # Ganancia de Kalman
-        self.x = self.x + k * (z - self.x)  # Actualización del valor estimado
-        self.p = (1 - k) * self.p  # Actualización del error de estimación
-
+        k = self.p / (self.p + self.r)
+        self.x = self.x + k * (z - self.x)
+        self.p = (1 - k) * self.p
         return self.x
 
 # Cargar el archivo
 def leer_datos(archivo):
-    # Arreglos para los datos
-    temperatura = []
-    presion = []
-    humedad = []
-    aceleracion_x = []
-    aceleracion_y = []
-    aceleracion_z = []
-    vel_angular_x = []
-    vel_angular_y = []
-    vel_angular_z = []
+    temperatura, presion, humedad = [], [], []
+    aceleracion_x, aceleracion_y, aceleracion_z = [], [], []
+    vel_angular_x, vel_angular_y, vel_angular_z = [], [], []
 
-    # Leer línea por línea
     with open(archivo, 'r') as f:
-        lineas = f.readlines()
-
-    # Evaluar líneas de lectura y discriminar
-    for linea in lineas:
-        if 'Temperatura' in linea:
-            temperatura.append(float(linea.split(': ')[1]))
-        elif 'Presion' in linea:
-            presion.append(float(linea.split(': ')[1]))
-        elif 'Humedad' in linea:
-            humedad.append(float(linea.split(': ')[1]))
-        elif 'Aceleracion en X' in linea:
-            aceleracion_x.append(float(linea.split(': ')[1]))
-        elif 'Aceleracion en Y' in linea:
-            aceleracion_y.append(float(linea.split(': ')[1]))
-        elif 'Aceleracion en Z' in linea:
-            aceleracion_z.append(float(linea.split(': ')[1]))
-        elif 'Velociad angular en X' in linea:
-            vel_angular_x.append(float(linea.split(': ')[1]))
-        elif 'Velociad angular en Y' in linea:
-            vel_angular_y.append(float(linea.split(': ')[1]))
-        elif 'Velociad angular en Z' in linea:
-            vel_angular_z.append(float(linea.split(': ')[1]))
+        for linea in f:
+            datos = list(map(float, linea.strip().split(',')))
+            temperatura.append(datos[0])  # Temp_BME
+            presion.append(datos[1])      # Pres_BME
+            humedad.append(datos[2])      # Hume_BME
+            aceleracion_x.append(datos[10])  # Accel_X
+            aceleracion_y.append(datos[11])  
+            aceleracion_z.append(datos[12])  
+            vel_angular_x.append(datos[7])   
+            vel_angular_y.append(datos[8])   
+            vel_angular_z.append(datos[9])   
 
     return (temperatura, presion, humedad, aceleracion_x, aceleracion_y,
             aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z)
 
-# Función para obtener la inclinación
 def calcular_inclinacion(acel_x, acel_y, acel_z):
     inclinacion_x = atan2(acel_y, sqrt(acel_x**2 + acel_z**2))
     inclinacion_y = atan2(-acel_x, sqrt(acel_y**2 + acel_z**2))
+    return degrees(inclinacion_x), degrees(inclinacion_y)
 
-    inclinacion_x = degrees(inclinacion_x)
-    inclinacion_y = degrees(inclinacion_y)
 
-    return inclinacion_x, inclinacion_y
+def graficar_y_guardar(dato, suavizado, titulo, eje_y, nombre_archivo):
+    plt.figure()
+    plt.plot(dato, label=f'{titulo} (Original)', alpha=0.5)
+    plt.plot(range(len(suavizado)), suavizado, linestyle='--', label=f'{titulo} (Suavizado)')
+    plt.title(titulo)
+    plt.xlabel('Tiempo')
+    plt.ylabel(eje_y)
+    plt.legend()
 
-# Graficar todo
+    ruta = os.path.join("graficas", f"{nombre_archivo}.png")
+    if os.path.exists(ruta):
+        os.remove(ruta)
+    plt.savefig(ruta)
+    plt.close()
+
 def graficar_datos(temperatura, presion, humedad,
                    aceleracion_x, aceleracion_y, aceleracion_z,
                    vel_angular_x, vel_angular_y, vel_angular_z, ventana_filtro=5):
-
-    # Aplicar filtro de media
+ 
     temperatura_suave = media_movil(temperatura, ventana=ventana_filtro)
     presion_suave = media_movil(presion, ventana=ventana_filtro)
     humedad_suave = media_movil(humedad, ventana=ventana_filtro)
@@ -97,123 +86,32 @@ def graficar_datos(temperatura, presion, humedad,
     vel_angular_y_suave = media_movil(vel_angular_y, ventana=ventana_filtro)
     vel_angular_z_suave = media_movil(vel_angular_z, ventana=ventana_filtro)
 
-    # Calcular inclinación después del filtro
-    inclinacion_x = []
-    inclinacion_y = []
-
-    kalman_x = FiltroKalman()
-    kalman_y = FiltroKalman()
-
+ 
+    inclinacion_x, inclinacion_y = [], []
+    kalman_x, kalman_y = FiltroKalman(), FiltroKalman()
     for i in range(len(aceleracion_x_suave)):
         ix, iy = calcular_inclinacion(aceleracion_x_suave[i], aceleracion_y_suave[i], aceleracion_z_suave[i])
         inclinacion_x.append(kalman_x.filtrar(ix))
         inclinacion_y.append(kalman_y.filtrar(iy))
 
-    plt.figure(figsize=(12, 18))
 
-    # Graficar temperatura
-    plt.subplot(6, 3, 1)
-    plt.plot(temperatura, color='r', label='Temperatura (Original)', alpha=0.5)
-    plt.plot(range(len(temperatura_suave)), temperatura_suave, color='r', label='Temperatura (Suavizada)', linestyle='--')
-    plt.title('Temperatura')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Temperatura (°C)')
-    plt.legend()
+    graficar_y_guardar(temperatura, temperatura_suave, 'Temperatura', 'Temperatura (°C)', 'temperatura')
+    graficar_y_guardar(presion, presion_suave, 'Presión', 'Presión (Pa)', 'presion')
+    graficar_y_guardar(humedad, humedad_suave, 'Humedad', 'Humedad (%)', 'humedad')
+    graficar_y_guardar(aceleracion_x, aceleracion_x_suave, 'Aceleración en X', 'Aceleración (m/s²)', 'aceleracion_x')
+    graficar_y_guardar(aceleracion_y, aceleracion_y_suave, 'Aceleración en Y', 'Aceleración (m/s²)', 'aceleracion_y')
+    graficar_y_guardar(aceleracion_z, aceleracion_z_suave, 'Aceleración en Z', 'Aceleración (m/s²)', 'aceleracion_z')
+    graficar_y_guardar(vel_angular_x, vel_angular_x_suave, 'Velocidad Angular en X', 'Vel. Angular (rad/s)', 'vel_angular_x')
+    graficar_y_guardar(vel_angular_y, vel_angular_y_suave, 'Velocidad Angular en Y', 'Vel. Angular (rad/s)', 'vel_angular_y')
+    graficar_y_guardar(vel_angular_z, vel_angular_z_suave, 'Velocidad Angular en Z', 'Vel. Angular (rad/s)', 'vel_angular_z')
+    graficar_y_guardar(inclinacion_x, inclinacion_x, 'Inclinación en X', 'Grados', 'inclinacion_x')
+    graficar_y_guardar(inclinacion_y, inclinacion_y, 'Inclinación en Y', 'Grados', 'inclinacion_y')
 
-    # Graficar presión
-    plt.subplot(6, 3, 2)
-    plt.plot(presion, color='b', label='Presión (Original)', alpha=0.5)
-    plt.plot(range(len(presion_suave)), presion_suave, color='b', label='Presión (Suavizada)', linestyle='--')
-    plt.title('Presión')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Presión (Pa)')
-    plt.legend()
 
-    # Graficar humedad
-    plt.subplot(6, 3, 3)
-    plt.plot(humedad, color='g', label='Humedad (Original)', alpha=0.5)
-    plt.plot(range(len(humedad_suave)), humedad_suave, color='g', label='Humedad (Suavizada)', linestyle='--')
-    plt.title('Humedad')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Humedad (%)')
-    plt.legend()
-
-    # Graficar aceleraciones
-    plt.subplot(6, 3, 4)
-    plt.plot(aceleracion_x, color='purple', label='Aceleración X (Original)', alpha=0.5)
-    plt.plot(range(len(aceleracion_x_suave)), aceleracion_x_suave, color='purple', label='Aceleración X (Suavizada)', linestyle='--')
-    plt.title('Aceleración en X')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Aceleración (m/s²)')
-    plt.legend()
-
-    plt.subplot(6, 3, 5)
-    plt.plot(aceleracion_y, color='orange', label='Aceleración Y (Original)', alpha=0.5)
-    plt.plot(range(len(aceleracion_y_suave)), aceleracion_y_suave, color='orange', label='Aceleración Y (Suavizada)', linestyle='--')
-    plt.title('Aceleración en Y')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Aceleración (m/s²)')
-    plt.legend()
-
-    plt.subplot(6, 3, 6)
-    plt.plot(aceleracion_z, color='brown', label='Aceleración Z (Original)', alpha=0.5)
-    plt.plot(range(len(aceleracion_z_suave)), aceleracion_z_suave, color='brown', label='Aceleración Z (Suavizada)', linestyle='--')
-    plt.title('Aceleración en Z')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Aceleración (m/s²)')
-    plt.legend()
-
-    # Graficar velocidades angulares
-    plt.subplot(6, 3, 7)
-    plt.plot(vel_angular_x, color='cyan', label='Vel. Angular X (Original)', alpha=0.5)
-    plt.plot(range(len(vel_angular_x_suave)), vel_angular_x_suave, color='cyan', label='Vel. Angular X (Suavizada)', linestyle='--')
-    plt.title('Velocidad Angular en X')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Vel. Angular (rad/s)')
-    plt.legend()
-
-    plt.subplot(6, 3, 8)
-    plt.plot(vel_angular_y, color='magenta', label='Vel. Angular Y (Original)', alpha=0.5)
-    plt.plot(range(len(vel_angular_y_suave)), vel_angular_y_suave, color='magenta', label='Vel. Angular Y (Suavizada)', linestyle='--')
-    plt.title('Velocidad Angular en Y')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Vel. Angular (rad/s)')
-    plt.legend()
-
-    plt.subplot(6, 3, 9)
-    plt.plot(vel_angular_z, color='lime', label='Vel. Angular Z (Original)', alpha=0.5)
-    plt.plot(range(len(vel_angular_z_suave)), vel_angular_z_suave, color='lime', label='Vel. Angular Z (Suavizada)', linestyle='--')
-    plt.title('Velocidad Angular en Z')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Vel. Angular (rad/s)')
-    plt.legend()
-
-    # Graficar inclinaciones
-    plt.subplot(6, 3, 10)
-    plt.plot(inclinacion_x, color='cyan', label='Inclinación X (Kalman)', linestyle='--')
-    plt.title('Inclinación en X (Grados)')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Inclinación (°)')
-    plt.legend()
-
-    plt.subplot(6, 3, 11)
-    plt.plot(inclinacion_y, color='magenta', label='Inclinación Y (Kalman)', linestyle='--')
-    plt.title('Inclinación en Y (Grados)')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Inclinación (°)')
-    plt.legend()
-
-    # Mostrar la gráfica
-    plt.tight_layout()
-    plt.show()
-
-# Archivo
 archivo = 'Telemetria_muestra.txt'
-#archivo = str(GUI.DataDisplayGUI.get_file_name)
-# Leer archivo
 (temperatura, presion, humedad, aceleracion_x, aceleracion_y,
  aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z) = leer_datos(archivo)
 
-# Graficar todos los datos con filtro
+
 graficar_datos(temperatura, presion, humedad, aceleracion_x, aceleracion_y,
                aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z)
