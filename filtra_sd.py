@@ -1,30 +1,17 @@
-# AUTHOR: ASTRA CLUB
-# DATE: 2024
-# FILE: COMPUTADORA DE VUELO/filtra_todo.py
-# Params: main.py
 import matplotlib.pyplot as plt
 import numpy as np
 from math import atan2, degrees, sqrt
 import os
+import tkinter as tk
+from tkinter import filedialog
 
-
+# Crear la carpeta "graficas" si no existe
 os.makedirs("graficas", exist_ok=True)
-
 
 def media_movil(data, ventana=3):
     return np.convolve(data, np.ones(ventana) / ventana, mode='valid')
 
 def calcular_y_graficar_altitud(aceleracion_y, delta_t=1):
-    """
-    Calcula la altitud a partir de la aceleración en Y y la grafica.
-    
-    Parámetros:
-        aceleracion_y: Lista o arreglo de aceleraciones en el eje Y (m/s²).
-        delta_t: Intervalo de tiempo entre mediciones (s).
-    
-    Resultado:
-        Guarda la gráfica de altitud como 'altitud.png' y retorna la altitud máxima.
-    """
     # Suavizar datos de aceleración en Y
     aceleracion_y_suave = media_movil(aceleracion_y)
 
@@ -46,8 +33,6 @@ def calcular_y_graficar_altitud(aceleracion_y, delta_t=1):
     print(f"Altitud máxima alcanzada: {altitud_maxima:.2f} m")
     return altitud_maxima
 
-
-
 class FiltroKalman:
     def __init__(self, q=1e-5, r=1e-2):
         self.q = q
@@ -61,6 +46,13 @@ class FiltroKalman:
         self.x = self.x + k * (z - self.x)
         self.p = (1 - k) * self.p
         return self.x
+
+# Función para seleccionar el archivo
+def seleccionar_archivo():
+    root = tk.Tk()
+    root.withdraw()  # Oculta la ventana principal
+    archivo = filedialog.askopenfilename(title="Seleccionar archivo de datos", filetypes=[("Archivos de texto", "*.txt")])
+    return archivo
 
 # Cargar el archivo
 def leer_datos(archivo):
@@ -88,7 +80,6 @@ def calcular_inclinacion(acel_x, acel_y, acel_z):
     inclinacion_x = atan2(acel_y, sqrt(acel_x**2 + acel_z**2))
     inclinacion_y = atan2(-acel_x, sqrt(acel_y**2 + acel_z**2))
     return degrees(inclinacion_x), degrees(inclinacion_y)
-
 
 def graficar_y_guardar(dato, suavizado, titulo, eje_y, nombre_archivo):
     plt.figure()
@@ -120,14 +111,12 @@ def graficar_datos(temperatura, presion, humedad,
     vel_angular_z_suave = media_movil(vel_angular_z, ventana=ventana_filtro)
     altitud_maxima = calcular_y_graficar_altitud(aceleracion_y, delta_t=0.1)
 
- 
     inclinacion_x, inclinacion_y = [], []
     kalman_x, kalman_y = FiltroKalman(), FiltroKalman()
     for i in range(len(aceleracion_x_suave)):
         ix, iy = calcular_inclinacion(aceleracion_x_suave[i], aceleracion_y_suave[i], aceleracion_z_suave[i])
         inclinacion_x.append(kalman_x.filtrar(ix))
         inclinacion_y.append(kalman_y.filtrar(iy))
-
 
     graficar_y_guardar(temperatura, temperatura_suave, 'Temperatura', 'Temperatura (°C)', 'temperatura')
     graficar_y_guardar(presion, presion_suave, 'Presión', 'Presión (Pa)', 'presion')
@@ -141,11 +130,14 @@ def graficar_datos(temperatura, presion, humedad,
     graficar_y_guardar(inclinacion_x, inclinacion_x, 'Inclinación en X', 'Grados', 'inclinacion_x')
     graficar_y_guardar(inclinacion_y, inclinacion_y, 'Inclinación en Y', 'Grados', 'inclinacion_y')
 
+# Seleccionar el archivo
+archivo = seleccionar_archivo()
 
-archivo = 'Telemetria_muestra.txt'
-(temperatura, presion, humedad, aceleracion_x, aceleracion_y,
- aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z) = leer_datos(archivo)
-
-
-graficar_datos(temperatura, presion, humedad, aceleracion_x, aceleracion_y,
-               aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z)
+if archivo:
+    (temperatura, presion, humedad, aceleracion_x, aceleracion_y,
+    aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z) = leer_datos(archivo)
+    
+    graficar_datos(temperatura, presion, humedad, aceleracion_x, aceleracion_y,
+                   aceleracion_z, vel_angular_x, vel_angular_y, vel_angular_z)
+else:
+    print("No se seleccionó ningún archivo.")

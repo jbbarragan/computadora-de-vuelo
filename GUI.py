@@ -150,15 +150,6 @@ class DataDisplayGUI:
             label.pack(anchor="w")
             self.giroscopio_labels[f"giroscopio {axis}"] = label
 
-      
-        self.magnetometro_frame = tk.LabelFrame(self.data_frames, text="Magnetómetro", padx=10, pady=10)
-        self.magnetometro_frame.grid(row=0, column=4, padx=5, pady=5)
-        self.magnetometro_labels = {}
-        for axis in ['X', 'Y', 'Z']:
-            label = tk.Label(self.magnetometro_frame, text=f"magnetrometro {axis}: ---")
-            label.pack(anchor="w")
-            self.magnetometro_labels[f"magnetrometro {axis}"] = label
-
  
         self.ambiental_frame = tk.LabelFrame(self.data_frames, text="Condiciones Ambientales", padx=10, pady=10)
         self.ambiental_frame.grid(row=1, column=0, padx=5, pady=5, columnspan=3, sticky="ew")
@@ -179,7 +170,7 @@ class DataDisplayGUI:
 
 
         self.labels = {**self.velocidad_labels, **self.aceleracion_labels, **self.gravedad_labels,
-                       **self.giroscopio_labels, **self.magnetometro_labels, **self.ambiental_labels,
+                       **self.giroscopio_labels, **self.ambiental_labels,
                        **self.orientacion_labels}
 
     def create_min_max_labels(self):
@@ -249,9 +240,25 @@ class DataDisplayGUI:
             time.sleep(0.05)
 
     def create_graficar_button(self):
-        """Crea un botón en la parte inferior central que ejecuta el script filtra_todo.py."""
-        self.graficar_button = tk.Button(self.root, text="Graficar", command=self.run_filtra_todo)
-        self.graficar_button.pack(pady=20, side=tk.BOTTOM)
+        """Crea botones en la parte inferior para Graficar y Procesar Archivo."""
+        # Frame contenedor para los botones
+        self.button_frame = tk.Frame(self.root)
+        self.button_frame.pack(pady=20, side=tk.BOTTOM)
+    
+        # Botón Graficar
+        self.graficar_button = tk.Button(self.button_frame, text="Graficar", command=self.run_filtra_todo)
+        self.graficar_button.pack(side=tk.LEFT, padx=10)
+    
+        # Botón Procesar Archivo
+        self.procesar_button = tk.Button(self.button_frame, text="Procesar Archivo", command=self.run_filtra_sd)
+        self.procesar_button.pack(side=tk.LEFT, padx=10)
+    
+    def run_filtra_sd(self):
+     """Ejecuta el script filtra_sd.py."""
+     try:
+      os.system('python filtra_sd.py')
+     except Exception as e:
+      messagebox.showerror("Error", f"Error al ejecutar filtra_sd.py: {e}")
 
     def run_filtra_todo(self):
         """Ejecuta el script filtra_todo.py."""
